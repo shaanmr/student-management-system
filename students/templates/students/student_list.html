@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}Student List{% endblock %}
+
+{% block content %}
+<h2>Student List</h2>
+
+<!-- Display success/error messages -->
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<ul>
+    {% for student in students %}
+        <li>
+            {{ student.name }} - {{ student.email }} - {{ student.course }}
+            <a href="{% url 'student_detail' student.id %}">View</a>
+            <a href="{% url 'update_student' student.id %}">Edit</a>
+            <a href="{% url 'delete_student' student.id %}">Delete</a>
+        </li>
+    {% empty %}
+        <li>No students found.</li>
+    {% endfor %}
+</ul>
+
+<h2>Add New Student</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Student</button>
+</form>
+{% endblock %}

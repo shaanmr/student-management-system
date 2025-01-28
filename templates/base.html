@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Student Management System{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>Student Management System</h1>
+        <nav>
+            <a href="{% url 'student_list' %}">Home</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        <!-- Content goes here -->
+        {% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Student Management System</p>
+    </footer>
+</body>
+</html>
