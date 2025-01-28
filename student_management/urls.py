@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('students/', include('students.urls')),  # Includes URLs for students app
+    path('admin/', admin.site.urls),  # Admin page URL
+    path('students/', include('students.urls')),  # Students app URL
+    path('', include('students.urls')),  # Root URL to student list
 ]
